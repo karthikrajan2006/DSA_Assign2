@@ -56,3 +56,17 @@ Node* search(Node* root, char value)
     // Search the right subtree for larger values.
     return search(root->right, value);
 }
+
+
+// Counts the number of nodes in the tree.
+int countNodes(Node* root)
+{
+    // Empty branches do not contain nodes.
+    if (root == NULL)
+    {
+        return 0;
+    }
+
+    // Count current node plus left and right subtrees.
+    return 1 + countNodes(root->left) + countNodes(root->right);
+}
