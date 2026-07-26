@@ -132,4 +132,4 @@ void freeTree(Node* root)
     freeTree(root->right);
 
     free(root);
-}
+}   
