@@ -23,12 +23,13 @@ Node* insert(Node* root, char value)
     {
         root->left = insert(root->left, value);
     }
-    // Insert larger values into the right subtree.
-    else if (value > root->data)
+    // Insert larger values and duplicates into the right subtree.
+    else
     {
         root->right = insert(root->right, value);
     }
 
+    // Return the root node after insertion.
     return root;
 }
 
@@ -68,7 +69,7 @@ int countNodes(Node* root)
         return 0;
     }
 
-    // Add current node and both subtrees.
+    // Count current node and both subtrees.
     return 1 + countNodes(root->left) + countNodes(root->right);
 }
 
@@ -126,7 +127,7 @@ void freeTree(Node* root)
         return;
     }
 
-    // Free child nodes before parent node.
+    // Free child nodes before freeing parent.
     freeTree(root->left);
     freeTree(root->right);
 
