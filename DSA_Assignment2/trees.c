@@ -30,3 +30,29 @@ Node* insert(Node* root, char value)
     // Return the unchanged root pointer.
     return root;
 }
+
+
+// Searches the tree for a specific character.
+Node* search(Node* root, char value)
+{
+    // Stop searching if the node does not exist.
+    if (root == NULL)
+    {
+        return NULL;
+    }
+
+    // Return the node when the value is found.
+    if (root->data == value)
+    {
+        return root;
+    }
+
+    // Search the left subtree for smaller values.
+    if (value < root->data)
+    {
+        return search(root->left, value);
+    }
+
+    // Search the right subtree for larger values.
+    return search(root->right, value);
+}
