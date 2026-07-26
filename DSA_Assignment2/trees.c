@@ -70,3 +70,28 @@ int countNodes(Node* root)
     // Count current node plus left and right subtrees.
     return 1 + countNodes(root->left) + countNodes(root->right);
 }
+
+
+// Calculates the height of the tree.
+int treeHeight(Node* root)
+{
+    // An empty tree has height -1.
+    if (root == NULL)
+    {
+        return -1;
+    }
+
+    // Find the height of both subtrees.
+    int leftHeight = treeHeight(root->left);
+    int rightHeight = treeHeight(root->right);
+
+    // Return the larger subtree height plus current node.
+    if (leftHeight > rightHeight)
+    {
+        return leftHeight + 1;
+    }
+    else
+    {
+        return rightHeight + 1;
+    }
+}
